@@ -9,8 +9,7 @@
       "image_url": "http://www.allbooks.com/post1/images/cover.png",
       "content": "In this article, we delve into the fascinating world of machine learning, exploring its applications in various industries. From self-driving cars to personalized recommendations, discover the power and potential of this cutting-edge technology.",
       "approved": "True",
-      "reactions": [2, 1],
-      "tags": [3, 2]
+      "pub_date": "2023-10-11"
     }
   },
   {
@@ -23,8 +22,7 @@
       "image_url": "http://www.allbooks.com/post2/images/cover.png",
       "content": "In a world filled with constant distractions, this post explores the principles of mindfulness and how they can be applied to our digital lives. Learn practical tips for cultivating presence and balance in the age of smartphones and social media.",
       "approved": "True",
-      "reactions": [3, 4],
-      "tags": [4, 1]
+      "pub_date": "2023-10-11"
     }
   },
   {
@@ -37,8 +35,7 @@
       "image_url": "http://www.allbooks.com/post3/images/cover.png",
       "content": "Quantum computing is on the horizon, promising unprecedented computational power. Join us on a journey through the basics of quantum mechanics and explore the potential impact of quantum computing on the future of technology.",
       "approved": "True",
-      "reactions": [4, 5],
-      "tags": [5]
+      "pub_date": "2023-10-11"
     }
   },
   {
@@ -51,8 +48,7 @@
       "image_url": "http://www.allbooks.com/post4/images/cover.png",
       "content": "Beyond cryptocurrencies like Bitcoin, blockchain technology is disrupting industries. This post takes a deep dive into the evolution of blockchain, exploring its applications in finance, supply chain, and decentralized applications.",
       "approved": "True",
-      "reactions": [3, 5, 3],
-      "tags": [3, 2, 1]
+      "pub_date": "2023-10-11"
     }
   },
   {
@@ -65,8 +61,7 @@
       "image_url": "http://www.allbooks.com/post5/images/cover.png",
       "content": "In a world dominated by trending topics and viral content, let's take a step back and rediscover the timeless beauty of classic literature. Explore the impact of technology on reading habits and the enduring relevance of literary masterpieces.",
       "approved": "True",
-      "reactions": [2, 1, 4, 5],
-      "tags": [5, 4]
+      "pub_date": "2023-10-11"
     }
   },
   {
@@ -79,8 +74,7 @@
       "image_url": "http://www.allbooks.com/post6/images/cover.png",
       "content": "Embark on a culinary journey around the world as we explore the vibrant and diverse world of street food. From bustling markets to hidden gems, discover the flavors that define different cultures and regions.",
       "approved": "True",
-      "reactions": [2, 1, 2],
-      "tags": [4, 2]
+      "pub_date": "2023-10-11"
     }
   }
 ]
