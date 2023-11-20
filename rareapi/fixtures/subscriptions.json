@@ -1,0 +1,52 @@
+[
+  {
+    "model": "rareapi.subscription",
+    "pk": 1,
+    "fields": {
+      "author_id": 1,
+      "follower_id": 2,
+      "created_on": "2023-01-01",
+      "ended_on": null
+    }
+  },
+  {
+    "model": "rareapi.subscription",
+    "pk": 2,
+    "fields": {
+      "author_id": 2,
+      "follower_id": 3,
+      "created_on": "2023-02-15",
+      "ended_on": null
+    }
+  },
+  {
+    "model": "rareapi.subscription",
+    "pk": 3,
+    "fields": {
+      "author_id": 3,
+      "follower_id": 4,
+      "created_on": "2023-03-28",
+      "ended_on": null
+    }
+  },
+  {
+    "model": "rareapi.subscription",
+    "pk": 4,
+    "fields": {
+      "author_id": 4,
+      "follower_id": 5,
+      "created_on": "2023-05-10",
+      "ended_on": null
+    }
+  },
+  {
+    "model": "rareapi.subscription",
+    "pk": 5,
+    "fields": {
+      "author_id": 5,
+      "follower_id": 1,
+      "created_on": "2023-06-22",
+      "ended_on": null
+    }
+  }
+]
