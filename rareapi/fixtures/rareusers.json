@@ -3,7 +3,7 @@
     "model": "rareapi.rareuser",
     "pk": 1,
     "fields": {
-      "user_id": 1,
+      "user": 1,
       "bio": "I'm an adventurous soul, exploring the wonders of life.",
       "image_url": "https://example.com/user1.jpg",
       "created_on": "2023-01-10",
@@ -14,7 +14,7 @@
     "model": "rareapi.rareuser",
     "pk": 2,
     "fields": {
-      "user_id": 2,
+      "user": 2,
       "bio": "Passionate about technology and always up for a coding challenge.",
       "image_url": "https://example.com/user2.jpg",
       "created_on": "2023-02-20",
@@ -25,7 +25,7 @@
     "model": "rareapi.rareuser",
     "pk": 3,
     "fields": {
-      "user_id": 3,
+      "user": 3,
       "bio": "A lover of art, expressing myself through paintings and sculptures.",
       "image_url": "https://example.com/user3.jpg",
       "created_on": "2023-03-15",
@@ -36,7 +36,7 @@
     "model": "rareapi.rareuser",
     "pk": 4,
     "fields": {
-      "user_id": 4,
+      "user": 4,
       "bio": "Adventurous spirit, seeking thrill in every journey.",
       "image_url": "https://example.com/user4.jpg",
       "created_on": "2023-04-05",
@@ -47,7 +47,7 @@
     "model": "rareapi.rareuser",
     "pk": 5,
     "fields": {
-      "user_id": 5,
+      "user": 5,
       "bio": "A bookworm and an aspiring writer, weaving tales of imagination.",
       "image_url": "https://example.com/user5.jpg",
       "created_on": "2023-05-18",

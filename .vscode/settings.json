@@ -2,5 +2,8 @@
   "pylint.args": [
     "--load-plugins=pylint_django",
     "--django-settings-module=honeyrae.settings"
+  ],
+  "cSpell.words": [
+    "rareapi"
   ]
 }
