@@ -1,0 +1,52 @@
+[
+    {
+        "model": "rareapi.comment",
+        "pk": 1,
+        "fields": {
+            "post": 1,
+            "author": 1,
+            "content": "I think you have everything backwards. Nothing makes sense!",
+            "subject": "Wrong"
+        }
+    },
+    {
+        "model": "rareapi.comment",
+        "pk": 1,
+        "fields": {
+            "post": 2,
+            "author": 2,
+            "content": "Awesome post! Everything makes sense!",
+            "subject": "Great!"
+        }
+    },
+    {
+        "model": "rareapi.comment",
+        "pk": 1,
+        "fields": {
+            "post": 3,
+            "author": 3,
+            "content": "This is a nice relaxing post!",
+            "subject": "Relaxing"
+        }
+    },
+    {
+        "model": "rareapi.comment",
+        "pk": 1,
+        "fields": {
+            "post": 4,
+            "author": 4,
+            "content": "I think you have everything backwards. Nothing makes sense!",
+            "subject": "Wrong"
+        }
+    },
+    {
+        "model": "rareapi.comment",
+        "pk": 1,
+        "fields": {
+            "post": 5,
+            "author": 5,
+            "content": "Super awesome post! Great detail!",
+            "subject": "Right!"
+        }
+    }
+]

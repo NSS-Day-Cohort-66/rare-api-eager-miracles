@@ -1,0 +1,37 @@
+[
+    {
+        "model": "rareapi.category",
+        "pk": 1,
+        "fields": {
+            "label": "News"
+        }
+    },
+    {
+        "model": "rareapi.category",
+        "pk": 2,
+        "fields": {
+            "label": "Science"
+        }
+    },
+    {
+        "model": "rareapi.category",
+        "pk": 3,
+        "fields": {
+            "label": "Technology"
+        }
+    },
+    {
+        "model": "rareapi.category",
+        "pk": 4,
+        "fields": {
+            "label": "Economics"
+        }
+    },
+    {
+        "model": "rareapi.category",
+        "pk": 5,
+        "fields": {
+            "label": "Entertainment"
+        }
+    }
+]
