@@ -1,0 +1,149 @@
+[
+  {
+    "model": "rareapi.tag",
+    "pk": 1,
+    "fields": {
+      "label": "Coding"
+    }
+  },
+  {
+    "model": "rareapi.tag",
+    "pk": 2,
+    "fields": {
+      "label": "Artificial Intelligence"
+    }
+  },
+  {
+    "model": "rareapi.tag",
+    "pk": 3,
+    "fields": {
+      "label": "Gadgets"
+    }
+  },
+  {
+    "model": "rareapi.tag",
+    "pk": 4,
+    "fields": {
+      "label": "Cybersecurity"
+    }
+  },
+  {
+    "model": "rareapi.tag",
+    "pk": 5,
+    "fields": {
+      "label": "Biology"
+    }
+  },
+  {
+    "model": "rareapi.tag",
+    "pk": 6,
+    "fields": {
+      "label": "Physics"
+    }
+  },
+  {
+    "model": "rareapi.tag",
+    "pk": 7,
+    "fields": {
+      "label": "Astronomy"
+    }
+  },
+  {
+    "model": "rareapi.tag",
+    "pk": 8,
+    "fields": {
+      "label": "Environmental Science"
+    }
+  },
+  {
+    "model": "rareapi.tag",
+    "pk": 9,
+    "fields": {
+      "label": "Mental Health"
+    }
+  },
+  {
+    "model": "rareapi.tag",
+    "pk": 10,
+    "fields": {
+      "label": "Fitness"
+    }
+  },
+  {
+    "model": "rareapi.tag",
+    "pk": 11,
+    "fields": {
+      "label": "Nutrition"
+    }
+  },
+  {
+    "model": "rareapi.tag",
+    "pk": 12,
+    "fields": {
+      "label": "Yoga and Meditation"
+    }
+  },
+  {
+    "model": "rareapi.tag",
+    "pk": 13,
+    "fields": {
+      "label": "Adventure Travel"
+    }
+  },
+  {
+    "model": "rareapi.tag",
+    "pk": 14,
+    "fields": {
+      "label": "Travel Tips"
+    }
+  },
+  {
+    "model": "rareapi.tag",
+    "pk": 15,
+    "fields": {
+      "label": "Local Explorations"
+    }
+  },
+  {
+    "model": "rareapi.tag",
+    "pk": 16,
+    "fields": {
+      "label": "Food Tourism"
+    }
+  },
+  {
+    "model": "rareapi.tag",
+    "pk": 17,
+    "fields": {
+      "label": "Goal Setting"
+    }
+  },
+  {
+    "model": "rareapi.tag",
+    "pk": 18,
+    "fields": {
+      "label": "Time Management"
+    }
+  },
+  {
+    "model": "rareapi.tag",
+    "pk": 19,
+    "fields": {
+      "label": "Mindfulness"
+    }
+  },
+  {
+    "model": "rareapi.tag",
+    "pk": 20,
+    "fields": {
+      "label": "Productivity Hacks"
+    }
+  },
+  {
+    "model": "rareapi.tag",
+    "pk": 21,
+    "fields": {
+      "label": "Fashion"
+    }
+  }
+]
