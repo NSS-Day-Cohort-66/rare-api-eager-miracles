@@ -34,18 +34,19 @@ class PostSerializer(serializers.ModelSerializer):
     category = PostCategorySerializer(many=False)
     reactions = ReactionSerializer(many=True)
     reactions_count = serializers.SerializerMethodField()
-   
+
     def get_reactions_count(self, obj):
         # Count the occurrences of each reaction for the post
-        reaction_counts = Counter(reaction['id'] for reaction in obj.reactions.values())
+        reaction_counts = Counter(reaction['id']
+                                  for reaction in obj.reactions.values())
 
         # Get the IDs of all reactions
         all_reaction_ids = Reaction.objects.values_list('id', flat=True)
 
         # Create a list of dictionaries for each reaction with or 0 if not present
-        reactions_list = [{'id' : reaction_id, 'count': reaction_counts[reaction_id]} for reaction_id in all_reaction_ids]
-        return reactions_list    
-       
+        reactions_list = [{'id': reaction_id, 'count': reaction_counts[reaction_id]}
+                          for reaction_id in all_reaction_ids]
+        return reactions_list
 
     class Meta:
         model = Post
@@ -77,3 +78,23 @@ class PostView(ViewSet):
         serializer = PostSerializer(posts, many=True)
         return Response(serializer.data)
 
+    def create(self, request):
+
+        category = Category.objects.get(pk=request.data["category"])
+        rareuser = RareUser.objects.get(pk=request.data["user"])
+
+        post = Post()
+        post.user = rareuser
+        post.category = category
+        post.title = request.data.get('title')
+        post.pub_date = request.data.get('pub_date')
+        post.image_url = request.data.get('image_url')
+        post.content = request.data.get('content')
+        post.approved = request.data.get('approved')
+        post.save()
+
+        try:
+            serializer = PostSerializer(post, many=False)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        except Exception as ex:
+            return Response(None, status=status.HTTP_404_NOT_FOUND)
