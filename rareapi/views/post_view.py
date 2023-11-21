@@ -5,11 +5,8 @@ from rest_framework.response import Response
 from rest_framework import serializers, status
 from rareapi.models import Post, Category, RareUser, Reaction
 from django.contrib.auth.models import User
-<<<<<<< HEAD
-=======
 from rareapi.views.reactions import ReactionSerializer
 from datetime import datetime
->>>>>>> main
 
 
 class PostUserSerializer(serializers.ModelSerializer):
@@ -37,18 +34,19 @@ class PostSerializer(serializers.ModelSerializer):
     category = PostCategorySerializer(many=False)
     reactions = ReactionSerializer(many=True)
     reactions_count = serializers.SerializerMethodField()
-   
+
     def get_reactions_count(self, obj):
         # Count the occurrences of each reaction for the post
-        reaction_counts = Counter(reaction['id'] for reaction in obj.reactions.values())
+        reaction_counts = Counter(reaction['id']
+                                  for reaction in obj.reactions.values())
 
         # Get the IDs of all reactions
         all_reaction_ids = Reaction.objects.values_list('id', flat=True)
 
         # Create a list of dictionaries for each reaction with or 0 if not present
-        reactions_list = [{'id' : reaction_id, 'count': reaction_counts[reaction_id]} for reaction_id in all_reaction_ids]
-        return reactions_list    
-       
+        reactions_list = [{'id': reaction_id, 'count': reaction_counts[reaction_id]}
+                          for reaction_id in all_reaction_ids]
+        return reactions_list
 
     class Meta:
         model = Post
@@ -71,10 +69,10 @@ class PostView(ViewSet):
     def create(self, request):
 
         category = Category.objects.get(pk=request.data["category"])
-        user = RareUser.objects.get(pk=request.data["rareuser"])
+        rareuser = RareUser.objects.get(pk=request.data["user"])
 
         post = Post()
-        post.user = user
+        post.user = rareuser
         post.category = category
         post.title = request.data.get('title')
         post.pub_date = request.data.get('pub_date')
