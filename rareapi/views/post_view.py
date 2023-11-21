@@ -47,3 +47,24 @@ class PostView(ViewSet):
         posts = Post.objects.all()
         serializer = PostSerializer(posts, many=True)
         return Response(serializer.data)
+
+    def create(self, request):
+
+        category = Category.objects.get(pk=request.data["category"])
+        user = RareUser.objects.get(pk=request.data["rareuser"])
+
+        post = Post()
+        post.user = user
+        post.category = category
+        post.title = request.data.get('title')
+        post.pub_date = request.data.get('pub_date')
+        post.image_url = request.data.get('image_url')
+        post.content = request.data.get('content')
+        post.approved = request.data.get('approved')
+        post.save()
+
+        try:
+            serializer = PostSerializer(post, many=False)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        except Exception as ex:
+            return Response(None, status=status.HTTP_404_NOT_FOUND)
