@@ -22,11 +22,13 @@ from rareapi.views import register_user, login_user, PostView, TagViewSet
 from django.conf.urls import include
 from rest_framework import routers
 from rareapi.views import CategoryViewSet
+from rareapi.views import ReactionViewSet
 
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'categories', CategoryViewSet, 'category')
 router.register(r'posts', PostView, 'post')
+router.register(r'reactions', ReactionViewSet, 'reaction')
 router.register(r'tags', TagViewSet, 'tag' )
 
 
