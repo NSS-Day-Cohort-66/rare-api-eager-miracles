@@ -6,7 +6,7 @@
       "user": 2,
       "category": 2,
       "title": "Exploring the Wonders of Machine Learning",
-      "image_url": "http://www.allbooks.com/post1/images/cover.png",
+      "image_url": "https://www.fsm.ac.in/blog/wp-content/uploads/2022/08/ml-e1610553826718.jpg",
       "content": "In this article, we delve into the fascinating world of machine learning, exploring its applications in various industries. From self-driving cars to personalized recommendations, discover the power and potential of this cutting-edge technology.",
       "approved": "True",
       "pub_date": "2023-10-11"
@@ -19,7 +19,7 @@
       "user": 3,
       "category": 1,
       "title": "The Art of Mindful Living in a Digital Age",
-      "image_url": "http://www.allbooks.com/post2/images/cover.png",
+      "image_url": "https://cdn.analyticsvidhya.com/wp-content/uploads/2020/09/72142deep-learning-vs-machine-learning-t.jpg",
       "content": "In a world filled with constant distractions, this post explores the principles of mindfulness and how they can be applied to our digital lives. Learn practical tips for cultivating presence and balance in the age of smartphones and social media.",
       "approved": "True",
       "pub_date": "2023-10-11"
@@ -32,7 +32,7 @@
       "user": 4,
       "category": 3,
       "title": "Unraveling the Mysteries of Quantum Computing",
-      "image_url": "http://www.allbooks.com/post3/images/cover.png",
+      "image_url": "https://assets.website-files.com/643d2eea03135260bdaca209/65239ee28b051edf58426e62_quantum%20computer%20architecture%20copy.png",
       "content": "Quantum computing is on the horizon, promising unprecedented computational power. Join us on a journey through the basics of quantum mechanics and explore the potential impact of quantum computing on the future of technology.",
       "approved": "True",
       "pub_date": "2023-10-11"
@@ -45,7 +45,7 @@
       "user": 1,
       "category": 5,
       "title": "The Evolution of Blockchain: Beyond Cryptocurrencies",
-      "image_url": "http://www.allbooks.com/post4/images/cover.png",
+      "image_url": "https://online.stanford.edu/sites/default/files/inline-images/1600X900-How-does-blockchain-work.jpg",
       "content": "Beyond cryptocurrencies like Bitcoin, blockchain technology is disrupting industries. This post takes a deep dive into the evolution of blockchain, exploring its applications in finance, supply chain, and decentralized applications.",
       "approved": "True",
       "pub_date": "2023-10-11"
@@ -58,7 +58,7 @@
       "user": 2,
       "category": 1,
       "title": "Rediscovering Classic Literature in the Digital Age",
-      "image_url": "http://www.allbooks.com/post5/images/cover.png",
+      "image_url": "https://www.realsimple.com/thmb/f_NxxEsDak15-e5AfaFTjjEAGWc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/stack-of-classic-novels-c1a7f95f29c54feab4136229948de3cd.jpg",
       "content": "In a world dominated by trending topics and viral content, let's take a step back and rediscover the timeless beauty of classic literature. Explore the impact of technology on reading habits and the enduring relevance of literary masterpieces.",
       "approved": "True",
       "pub_date": "2023-10-11"
@@ -71,7 +71,7 @@
       "user": 4,
       "category": 2,
       "title": "Culinary Adventures: A Global Tour through Street Food",
-      "image_url": "http://www.allbooks.com/post6/images/cover.png",
+      "image_url": "https://media.timeout.com/images/105775807/image.jpg",
       "content": "Embark on a culinary journey around the world as we explore the vibrant and diverse world of street food. From bustling markets to hidden gems, discover the flavors that define different cultures and regions.",
       "approved": "True",
       "pub_date": "2023-10-11"
