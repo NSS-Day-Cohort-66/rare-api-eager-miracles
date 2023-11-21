@@ -4,7 +4,6 @@ from rest_framework.response import Response
 from rest_framework import serializers, status
 from rareapi.models import Post, Category, RareUser, PostTag
 from django.contrib.auth.models import User
-from datetime import datetime
 
 
 class PostUserSerializer(serializers.ModelSerializer):
