@@ -2,7 +2,7 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from rareapi.models import Post, Category, RareUser, PostTag
+from rareapi.models import Post, Category, RareUser, PostTag, Reaction
 from django.contrib.auth.models import User
 from datetime import datetime
 
@@ -26,6 +26,11 @@ class PostCategorySerializer(serializers.ModelSerializer):
         model = Category
         fields = ['id', 'label']
 
+class PostReactionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Reaction
+        fields = ['label']
+
 
 class PostSerializer(serializers.ModelSerializer):
     user = PostRareUserSerializer(many=False)
@@ -34,7 +39,7 @@ class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
         fields = ['id', 'user', 'title', 'content',
-                  'image_url', 'category', 'pub_date', 'approved']
+                  'image_url', 'category', 'pub_date', 'approved', 'reactions']
 
 
 class PostView(ViewSet):
