@@ -61,7 +61,19 @@ class PostView(ViewSet):
         return Response(serializer.data)
 
     def list(self, request):
-        posts = Post.objects.all()
+        user_id = self.request.query_params.get('user')
+
+        if user_id:
+            # If user_id is provided, filter posts by user ID
+            try:
+                user_id = int(user_id)
+                posts = Post.objects.filter(user__user__id=user_id)
+            except ValueError:
+                raise Http404("Invalid user ID provided.")
+        else:
+            # If no user_id provided, return all posts
+            posts = Post.objects.all()
+
         serializer = PostSerializer(posts, many=True)
         return Response(serializer.data)
-    
+
