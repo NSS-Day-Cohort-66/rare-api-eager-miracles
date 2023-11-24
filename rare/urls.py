@@ -18,7 +18,7 @@ Including another URLconf
 from django.contrib import admin
 from django.conf.urls import include
 from django.urls import path
-from rareapi.views import register_user, login_user, PostView, TagViewSet
+from rareapi.views import register_user, login_user, PostView, TagViewSet, PostReactionView
 from django.conf.urls import include
 from rest_framework import routers
 from rareapi.views import CategoryViewSet
@@ -30,6 +30,7 @@ router.register(r'categories', CategoryViewSet, 'category')
 router.register(r'posts', PostView, 'post')
 router.register(r'reactions', ReactionViewSet, 'reaction')
 router.register(r'tags', TagViewSet, 'tag' )
+router.register(r'postreactions', PostReactionView, 'postreaction')
 
 
 urlpatterns = [
