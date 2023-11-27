@@ -52,3 +52,13 @@ class ReactionViewSet(viewsets.ViewSet):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         except Reaction.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
+        
+    def destroy(self, request, pk=None):
+        try:
+            reaction = Reaction.objects.get(pk=pk)
+            reaction.delete()
+
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        
+        except Reaction.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)

@@ -3,3 +3,4 @@ from .categories import CategoryViewSet
 from .tags import TagViewSet
 from .post_view import PostView
 from .reactions import ReactionViewSet
+from .post_reaction_view import PostReactionView

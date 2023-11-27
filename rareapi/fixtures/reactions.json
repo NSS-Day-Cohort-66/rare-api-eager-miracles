@@ -4,7 +4,7 @@
     "pk": 1,
     "fields": {
       "label": "love",
-      "image_url": "https://example.com/love.jpg"
+      "image_url": "https://images.emojiterra.com/google/noto-emoji/unicode-15.1/color/1024px/2764.png"
     }
   },
   {
@@ -12,7 +12,7 @@
     "pk": 2,
     "fields": {
       "label": "mindblown",
-      "image_url": "https://example.com/mindblown.jpg"
+      "image_url": "https://images.emojiterra.com/google/noto-emoji/unicode-15.1/color/1024px/1f92f.png"
     }
   },
   {
@@ -20,7 +20,7 @@
     "pk": 3,
     "fields": {
       "label": "thinking",
-      "image_url": "https://example.com/thinking.jpg"
+      "image_url": "https://images.emojiterra.com/twitter/v14.0/512px/1f914.png"
     }
   },
   {
@@ -28,7 +28,7 @@
     "pk": 4,
     "fields": {
       "label": "rage",
-      "image_url": "https://example.com/rage.jpg"
+      "image_url": "https://images.emojiterra.com/google/noto-emoji/unicode-15.1/color/256px/1f621.png"
     }
   }
 ]
