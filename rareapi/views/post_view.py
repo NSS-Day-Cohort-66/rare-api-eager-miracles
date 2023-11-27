@@ -1,4 +1,3 @@
-from django.http import HttpResponseServerError
 from collections import Counter
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
@@ -6,7 +5,6 @@ from rest_framework import serializers, status
 from rareapi.models import Post, Category, RareUser, Reaction
 from django.contrib.auth.models import User
 from rareapi.views.reactions import ReactionSerializer
-from datetime import datetime
 
 
 class PostUserSerializer(serializers.ModelSerializer):
@@ -27,6 +25,11 @@ class PostCategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
         fields = ['id', 'label']
+
+class PostReactionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Reaction
+        fields = ['label']
 
 
 class PostSerializer(serializers.ModelSerializer):
