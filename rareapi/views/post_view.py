@@ -86,7 +86,6 @@ class PostView(ViewSet):
 
         category = Category.objects.get(pk=request.data["category"])
         rareuser = RareUser.objects.get(pk=request.data["user"])
-
         post = Post()
         post.user = rareuser
         post.category = category
@@ -102,3 +101,13 @@ class PostView(ViewSet):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         except Exception as ex:
             return Response(None, status=status.HTTP_404_NOT_FOUND)
+
+    def destroy(self, request, pk=None):
+        try:
+            post = Post.objects.get(pk=pk)
+            post.delete()
+
+            return Response(status=status.HTTP_204_NO_CONTENT)
+
+        except Reaction.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
