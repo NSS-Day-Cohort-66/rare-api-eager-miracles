@@ -45,3 +45,19 @@ class TagViewSet(viewsets.ViewSet):
 
         except Tag.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
+
+    def update(self, request, pk=None):
+        try:
+            tag = Tag.objects.get(pk=pk)
+            serializer = TagSerializer(data=request.data)
+            if serializer.is_valid():
+                tag.label = serializer.validated_data['label']
+                tag.save()
+                
+                serializer = TagSerializer(tag, context={'request': request})
+                return Response(None, status.HTTP_204_NO_CONTENT)
+
+            return Response(serializer.errors, status.HTTP_400_BAD_REQUEST)
+
+        except Tag.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
