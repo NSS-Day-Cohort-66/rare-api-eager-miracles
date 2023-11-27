@@ -26,6 +26,7 @@ class PostCategorySerializer(serializers.ModelSerializer):
         model = Category
         fields = ['id', 'label']
 
+
 class PostReactionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Reaction
@@ -73,7 +74,7 @@ class PostView(ViewSet):
                 user_id = int(user_id)
                 posts = Post.objects.filter(user__user__id=user_id)
             except ValueError:
-                raise Http404("Invalid user ID provided.")
+                raise status(status.HTTP_400_BAD_REQUEST)
         else:
             # If no user_id provided, return all posts
             posts = Post.objects.all()
@@ -90,10 +91,10 @@ class PostView(ViewSet):
         post.user = rareuser
         post.category = category
         post.title = request.data.get('title')
-        post.pub_date = request.data.get('pub_date')
+        # post.pub_date = request.data.get('pub_date')
         post.image_url = request.data.get('image_url')
         post.content = request.data.get('content')
-        post.approved = request.data.get('approved')
+        # post.approved = request.data.get('approved')
         post.save()
 
         try:
