@@ -6,7 +6,7 @@ from rareapi.models import PostReaction, RareUser, Post, Reaction
 class PostReactionSerializer(serializers.ModelSerializer):
     class Meta:
         model = PostReaction
-        fields = ['user', 'post', 'reaction']
+        fields = ['user_id', 'post_id', 'reaction_id']
 
 class PostReactionView(ViewSet):
     def list(self, request):
