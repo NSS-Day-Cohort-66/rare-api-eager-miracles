@@ -35,3 +35,13 @@ class TagViewSet(viewsets.ViewSet):
         serializer = TagSerializer(tag, context={'request': request})
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
+    def destroy(self, request, pk=None):
+        try:
+            tag = Tag.objects.get(pk=pk)
+            self.check_object_permissions(request, tag)
+            tag.delete()
+
+            return Response(status=status.HTTP_204_NO_CONTENT)
+
+        except Tag.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
