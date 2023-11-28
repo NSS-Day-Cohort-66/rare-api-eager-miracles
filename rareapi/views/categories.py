@@ -38,3 +38,30 @@ class CategoryViewSet(viewsets.ViewSet):
 
         serializer = CategorySerializer(category, context={'request': request})
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+    def destroy(self, request, pk=None):
+        try:
+            category = Category.objects.get(pk=pk)
+            self.check_object_permissions(request, category)
+            category.delete()
+
+            return Response(status=status.HTTP_204_NO_CONTENT)
+
+        except Category.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+    def update(self, request, pk=None):
+        try:
+            category = Category.objects.get(pk=pk)
+            serializer = CategorySerializer(data=request.data)
+            if serializer.is_valid():
+                category.label = serializer.validated_data['label']
+                category.save()
+                
+                serializer = CategorySerializer(Category, context={'request': request})
+                return Response(None, status.HTTP_204_NO_CONTENT)
+
+            return Response(serializer.errors, status.HTTP_400_BAD_REQUEST)
+
+        except Category.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
