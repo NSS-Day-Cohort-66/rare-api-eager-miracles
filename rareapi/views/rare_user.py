@@ -25,7 +25,7 @@ class RareUserSerializer(serializers.ModelSerializer):
     user = RareUserUserSerializer(many=False)
     image_avatar = serializers.SerializerMethodField()
 
-    def get_image_url(self, obj):
+    def get_image_avatar(self, obj):
         if obj.image_url:
             return obj.image_url
         return 'https://cdn1.iconfinder.com/data/icons/user-pictures/100/unknown-512.png'
@@ -39,3 +39,5 @@ class RareUserView(ViewSet):
 
     def list(self, request):
         rare_users = RareUser.objects.all()
+        serializer = RareUserSerializer(rare_users, many=True, context={'request': request})
+        return Response(serializer.data)

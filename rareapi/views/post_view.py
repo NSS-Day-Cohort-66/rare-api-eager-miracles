@@ -63,7 +63,6 @@ class PostView(ViewSet):
     def retrieve(self, request, pk):
         post = Post.objects.get(pk=pk)
         serializer = PostSerializer(post)
-        owner = self.request.user.id
         return Response(serializer.data)
 
     def list(self, request):
