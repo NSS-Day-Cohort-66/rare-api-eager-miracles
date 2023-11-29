@@ -45,6 +45,20 @@ class PostTests(APITestCase):
             json_response["image_url"], "https://www.fsm.ac.in/blog/wp-content/uploads/2022/08/ml-e1610553826718.jpg")
         self.assertEqual(json_response["approved"], True)
 
+    def test_get_all_posts(self):
+
+        response = self.client.get('/posts')
+
+        json_response = json.loads(response.content)
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+        self.assertEqual(json_response[0]["title"],
+                         "Exploring the Wonders of Machine Learning")
+        self.assertEqual(json_response[0]["content"], "In this article, we delve into the fascinating world of machine learning, exploring its applications in various industries. From self-driving cars to personalized recommendations, discover the power and potential of this cutting-edge technology.")
+        self.assertEqual(
+            json_response[0]["image_url"], "https://www.fsm.ac.in/blog/wp-content/uploads/2022/08/ml-e1610553826718.jpg")
+
     def test_create_post(self):
 
         url = "/posts"
@@ -88,7 +102,6 @@ class PostTests(APITestCase):
         response = self.client.delete(f"/posts/{post.id}")
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
 
-        print(response.content)
         # GET the game again to verify you get a 404 response
         response = self.client.get(f"/posts/{post.id}")
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
