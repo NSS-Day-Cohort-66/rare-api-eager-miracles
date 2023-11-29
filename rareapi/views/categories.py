@@ -53,15 +53,33 @@ class CategoryViewSet(viewsets.ViewSet):
     def update(self, request, pk=None):
         try:
             category = Category.objects.get(pk=pk)
-            serializer = CategorySerializer(data=request.data)
+            serializer = CategorySerializer(category, data=request.data)
             if serializer.is_valid():
                 category.label = serializer.validated_data['label']
                 category.save()
-                
-                serializer = CategorySerializer(Category, context={'request': request})
-                return Response(None, status.HTTP_204_NO_CONTENT)
+
+                # Use the serializer to serialize the updated category
+                updated_serializer = CategorySerializer(category, context={'request': request})
+                return Response(updated_serializer.data, status.HTTP_200_OK)
 
             return Response(serializer.errors, status.HTTP_400_BAD_REQUEST)
 
         except Category.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
+
+
+    # def update(self, request, pk=None):
+    #     try:
+    #         category = Category.objects.get(pk=pk)
+    #         serializer = CategorySerializer(data=request.data)
+    #         if serializer.is_valid():
+    #             category.label = serializer.validated_data['label']
+    #             category.save()
+                
+    #             serializer = CategorySerializer(Category, context={'request': request})
+    #             return Response(None, status.HTTP_204_NO_CONTENT)
+
+    #         return Response(serializer.errors, status.HTTP_400_BAD_REQUEST)
+
+    #     except Category.DoesNotExist:
+    #         return Response(status=status.HTTP_404_NOT_FOUND)
