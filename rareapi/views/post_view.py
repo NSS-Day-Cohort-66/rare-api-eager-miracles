@@ -51,7 +51,7 @@ class PostSerializer(serializers.ModelSerializer):
         reactions_list = [{'id': reaction_id, 'count': reaction_counts[reaction_id]}
                           for reaction_id in all_reaction_ids]
         return reactions_list
-    
+
     class Meta:
         model = Post
         fields = ['id', 'user', 'title', 'content',
@@ -61,9 +61,12 @@ class PostSerializer(serializers.ModelSerializer):
 class PostView(ViewSet):
 
     def retrieve(self, request, pk):
-        post = Post.objects.get(pk=pk)
-        serializer = PostSerializer(post)
-        return Response(serializer.data)
+        try:
+            post = Post.objects.get(pk=pk)
+            serializer = PostSerializer(post, context={'request': request})
+            return Response(serializer.data)
+        except Post.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
 
     def list(self, request):
         # Get the query parameter 'user' from the request
