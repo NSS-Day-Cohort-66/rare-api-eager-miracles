@@ -1,3 +1,5 @@
 from .tag_tests import TagTests
-from .post_test import PostTests
+from .category_tests import CategoryTests
 from .reactions_test import ReactionsTests
+from .reactions_test import ReactionsTests
+from .post_test import PostTests
