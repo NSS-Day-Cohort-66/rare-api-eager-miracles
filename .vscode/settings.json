@@ -4,6 +4,9 @@
     "--django-settings-module=honeyrae.settings"
   ],
   "cSpell.words": [
-    "rareapi"
+    "postreaction",
+    "postreactions",
+    "rareapi",
+    "viewsets"
   ]
 }
