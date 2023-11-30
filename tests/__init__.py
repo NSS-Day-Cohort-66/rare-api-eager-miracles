@@ -3,3 +3,4 @@ from .category_tests import CategoryTests
 from .reactions_test import ReactionsTests
 from .reactions_test import ReactionsTests
 from .post_test import PostTests
+from .rare_users_tests import RareUserTests
