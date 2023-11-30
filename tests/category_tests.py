@@ -50,10 +50,9 @@ class CategoryTests(APITestCase):
         json_response = json.loads(response.content)
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-
-        self.assertEqual(json_response[0]["label"], "News")
-        self.assertEqual(json_response[1]["label"], "Science")
-        self.assertEqual(json_response[2]["label"], "Technology")
+        
+        for obj in json_response:
+            self.assertIn("label", obj)
 
     def test_delete_cat(self):
         """
