@@ -38,6 +38,10 @@ class RareUserSerializer(serializers.ModelSerializer):
     subscriptions_as_follower = RareUserSubscriptionSerializer(
         many=True)
     created_on = serializers.SerializerMethodField()
+    # is_subscribed = serializers.SerializerMethodField()
+
+    # def get_is_subscribed(self, obj):
+    #     matching_subscriptions = Subscription.objects.filter(obj.follower_id)
 
     def get_created_on(self, obj):
         return f'{obj.created_on.month}/{obj.created_on.day}/{obj.created_on.year}'

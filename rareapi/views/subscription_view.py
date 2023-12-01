@@ -10,16 +10,34 @@ class SubscriptionSerializer(serializers.ModelSerializer):
     author = RareUserSerializer(many=False)
     follower = RareUserSerializer(many=False)
 
+    is_subscribed = serializers.SerializerMethodField()
+
+    def get_is_subscribed(self, obj):
+        # Get the user id of the current user from the request
+        current_user_id = self.context['request'].user.id
+
+        # Filter through Subscriptions Objects to find the current user's subscriptions
+        current_users_subscriptions =  Subscription.objects.filter(follower_id=current_user_id)
+        
+        # Filter through current user's subscriptions to find if user is subscribed to 
+        # author via author_id property of current Subscription Object(obj) being serialized
+        user_is_subscribed = current_users_subscriptions.filter(author_id=obj.author_id)
+        
+        if user_is_subscribed.exists():
+            return True
+        else:
+            return False
+
     class Meta:
         model = Subscription
-        fields = ['id', 'author', 'follower', 'created_on', 'ended_on']
+        fields = ['id', 'author', 'follower', 'created_on', 'ended_on', 'is_subscribed']
 
 
 class SubscriptionViewSet(viewsets.ViewSet):
 
     def list(self, request):
         subscriptions = Subscription.objects.all()
-        serializer = SubscriptionSerializer(subscriptions, many=True)
+        serializer = SubscriptionSerializer(subscriptions, many=True, context={'request': request})
         return Response(serializer.data)
 
     def retrieve(self, request, pk):
