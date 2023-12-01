@@ -41,3 +41,11 @@ class RareUserView(ViewSet):
         rare_users = RareUser.objects.all()
         serializer = RareUserSerializer(rare_users, many=True, context={'request': request})
         return Response(serializer.data)
+    
+    def retrieve(self, request, pk):
+        try:
+            rare_user = RareUser.objects.get(pk=pk)
+            serializer = RareUserSerializer(rare_user, context={'request': request})
+            return Response(serializer.data)
+        except RareUser.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
