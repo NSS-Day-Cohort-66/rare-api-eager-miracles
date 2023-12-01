@@ -37,7 +37,11 @@ class RareUserSerializer(serializers.ModelSerializer):
         many=True)
     subscriptions_as_follower = RareUserSubscriptionSerializer(
         many=True)
+    created_on = serializers.SerializerMethodField()
 
+    def get_created_on(self, obj):
+        return f'{obj.created_on.month}/{obj.created_on.day}/{obj.created_on.year}'
+    
     def get_image_avatar(self, obj):
         if obj.image_url:
             return obj.image_url
@@ -46,7 +50,7 @@ class RareUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = RareUser
         fields = ['id', 'user', 'image_avatar',
-                  'subscriptions_as_author', 'subscriptions_as_follower']
+                  'subscriptions_as_author', 'subscriptions_as_follower', 'created_on']
 
 
 class RareUserView(ViewSet):
