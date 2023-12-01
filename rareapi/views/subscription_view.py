@@ -19,10 +19,11 @@ class SubscriptionSerializer(serializers.ModelSerializer):
         # Filter through Subscriptions Objects to find the current user's subscriptions
         current_users_subscriptions =  Subscription.objects.filter(follower_id=current_user_id)
         
-        # Filter through current user's subscriptions to find if user is subscribed to 
-        # author via author_id property of current Subscription Object(obj) being serialized
+        # Filter through current user's subscriptions to find if user is subscribed to the
+        # author of the current Subscription Instance/Object(obj) being serialized via author_id property 
         user_is_subscribed = current_users_subscriptions.filter(author_id=obj.author_id)
         
+        #If current user is subscribed to said author, return True as the value of is_subscribed property
         if user_is_subscribed.exists():
             return True
         else:
