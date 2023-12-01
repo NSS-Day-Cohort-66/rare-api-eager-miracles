@@ -41,8 +41,8 @@ class SubscriptionViewSet(viewsets.ViewSet):
         subscription = Subscription()
         subscription.author = author
         subscription.follower = follower
-        subscription.created_on = request.data.get('created_on')
-        subscription.ended_on = request.data.get('ended_on')
+        # subscription.created_on = request.data.get('created_on')
+        # subscription.ended_on = request.data.get('ended_on')
         subscription.save()
 
         try:
