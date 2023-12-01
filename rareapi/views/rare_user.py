@@ -34,9 +34,9 @@ class RareUserSerializer(serializers.ModelSerializer):
     user = RareUserUserSerializer(many=False)
     image_avatar = serializers.SerializerMethodField()
     subscriptions_as_author = RareUserSubscriptionSerializer(
-        many=True, read_only=True)
+        many=True)
     subscriptions_as_follower = RareUserSubscriptionSerializer(
-        many=True, read_only=True)
+        many=True)
 
     def get_image_avatar(self, obj):
         if obj.image_url:
