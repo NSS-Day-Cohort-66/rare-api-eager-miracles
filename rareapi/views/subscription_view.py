@@ -2,13 +2,9 @@ from rest_framework import viewsets, status
 from rest_framework import serializers
 from rest_framework.response import Response
 from rareapi.models import Subscription, RareUser
-from rareapi.views.rare_user import RareUserSerializer
 
 
 class SubscriptionSerializer(serializers.ModelSerializer):
-
-    author = RareUserSerializer(many=False)
-    follower = RareUserSerializer(many=False)
 
     class Meta:
         model = Subscription
@@ -19,7 +15,7 @@ class SubscriptionViewSet(viewsets.ViewSet):
 
     def list(self, request):
         subscriptions = Subscription.objects.all()
-        serializer = SubscriptionSerializer(subscriptions, many=True)
+        serializer = SubscriptionSerializer(subscriptions, many=True, context={'request': request})
         return Response(serializer.data)
 
     def retrieve(self, request, pk):

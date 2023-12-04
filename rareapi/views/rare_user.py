@@ -2,15 +2,14 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
 from rareapi.models import RareUser, Subscription
+from rareapi.views.subscription_view import SubscriptionSerializer
 from django.contrib.auth.models import User
 
+# class RareUserSubscriptionSerializer(serializers.ModelSerializer):
 
-class RareUserSubscriptionSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = Subscription
-        fields = ['id', 'author_id', 'follower_id', 'created_on']
-
+#     class Meta:
+#         model = Subscription
+#         fields = ['id', 'author_id', 'follower_id']
 
 class RareUserUserSerializer(serializers.ModelSerializer):
     full_name = serializers.SerializerMethodField()
@@ -33,12 +32,26 @@ class RareUserUserSerializer(serializers.ModelSerializer):
 class RareUserSerializer(serializers.ModelSerializer):
     user = RareUserUserSerializer(many=False)
     image_avatar = serializers.SerializerMethodField()
-    subscriptions_as_author = RareUserSubscriptionSerializer(
-        many=True)
-    subscriptions_as_follower = RareUserSubscriptionSerializer(
-        many=True)
     created_on = serializers.SerializerMethodField()
+    current_user_is_subscribed = serializers.SerializerMethodField()
+    # subscriptions_as_followers = RareUserSubscriptionSerializer(many=True)
+    
+    def get_current_user_is_subscribed(self, obj):
+        # Get the user id of the current user from the request
+        current_user_id = self.context['request'].user.id
 
+        # Get all the subscriptions of the current RareUser where it is an author
+        rare_user_subscriptions_as_author = obj.subscriptions_as_author.values()
+
+        # Loop through all subscriptions where RareUser is an author
+        for subscription in rare_user_subscriptions_as_author:
+            current_is_subscribed = False
+            # Conditional to see if current user is subscribed to RareUser and if it is still current
+            if subscription['follower_id'] == current_user_id and subscription['ended_on'] is None:
+                return True
+            
+        return current_is_subscribed
+   
     def get_created_on(self, obj):
         return f'{obj.created_on.month}/{obj.created_on.day}/{obj.created_on.year}'
     
@@ -50,7 +63,7 @@ class RareUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = RareUser
         fields = ['id', 'user', 'image_avatar',
-                  'subscriptions_as_author', 'subscriptions_as_follower', 'created_on']
+                  'created_on', 'current_user_is_subscribed']
 
 
 class RareUserView(ViewSet):
